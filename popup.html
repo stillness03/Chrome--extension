@@ -1,9 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Video Enhancer</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="Logo" class="logo" />
+      <h1>Anime Video Enhancer</h1>
+    </div>
+
+    <div id="noVideo" class="status">No anime video detected on this page.</div>
+
+    <div id="videoControls" class="hidden">
+      <div id="videoInfo" class="video-info">
+        <div>
+          <strong>Source:</strong> <span id="videoSource">Unknown</span>
+        </div>
+        <div>
+          <strong>Resolution:</strong> <span id="videoResolution">-</span>
+        </div>
+      </div>
+
+      <div class="presets">
+        <button class="preset-btn" data-preset="default">Default</button>
+        <button class="preset-btn" data-preset="oldAnime">Old Anime</button>
+        <button class="preset-btn" data-preset="lowQuality">Low Quality</button>
+        <button class="preset-btn" data-preset="highQuality">
+          High Quality
+        </button>
+      </div>
+
+      <div class="control-group">
+        <div class="control-header">
+          <span class="control-title">Enhancement</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleEnhancement" checked />
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+      </div>
+
+      <div id="enhancementControls">
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Sharpness</span>
+            <span class="control-value" id="sharpnessValue">1.5</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="2"
+            step="0.1"
+            value="1.5"
+            class="slider"
+            id="sharpnessSlider"
+          />
+        </div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Edge Enhance</span>
+            <span class="control-value" id="edgeValue">0.8</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0.8"
+            class="slider"
+            id="edgeSlider"
+          />
+        </div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Noise Reduction</span>
+            <span class="control-value" id="noiseValue">0.5</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0.5"
+            class="slider"
+            id="noiseSlider"
+          />
+        </div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Upscaling</span>
+            <span class="control-value" id="upscaleValue">Off</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="2"
+            step="1"
+            value="0"
+            class="slider"
+            id="upscaleSlider"
+          />
+        </div>
+
+        <button id="applyBtn" class="btn">Apply Settings</button>
+        <button id="advancedBtn" class="btn btn-secondary">
+          Advanced Settings
+        </button>
+      </div>
+
+      <div id="advancedSettings" class="hidden">
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Gamma Correction</span>
+            <span class="control-value" id="gammaValue">0.9</span>
+          </div>
+          <input
+            type="range"
+            min="0.5"
+            max="1.5"
+            step="0.1"
+            value="0.9"
+            class="slider"
+            id="gammaSlider"
+          />
+        </div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">Color Boost</span>
+            <span class="control-value" id="colorValue">1.1</span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="2"
+            step="0.1"
+            value="1.1"
+            class="slider"
+            id="colorSlider"
+          />
+        </div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <span class="control-title">De-banding</span>
+            <span class="control-value" id="bandingValue">0.5</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0.5"
+            class="slider"
+            id="bandingSlider"
+          />
+        </div>
+
+        <button id="saveAdvancedBtn" class="btn">Save Advanced Settings</button>
+      </div>
+
+      <div id="statusActive" class="status active">Enhancing current video</div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
 </html>
